@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.etoak.et1911</groupId>
 	<artifactId>et1911</artifactId>
@@ -10,8 +8,10 @@
 	<modules>
 		<module>spring-ioc-review</module>
 		<module>springmvc-001-hello</module>
-		
-	</modules>
+
+		<module>springmvc-02</module>
+    <module>springmvc-03</module>
+  </modules>
 	<!--如有需要还可以在写 就是要依赖的 <dependencies></dependencies> -->
 	<!-- 父工程管理依赖 但不引入依赖 有模块(子工程)决定自己需要的依赖 -->
 	<dependencyManagement>

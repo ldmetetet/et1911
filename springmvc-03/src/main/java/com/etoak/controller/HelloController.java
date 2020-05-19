@@ -1,0 +1,19 @@
+package com.etoak.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("/hello")
+public class HelloController {
+	@RequestMapping("/index")
+	public String index(HttpServletRequest request) {
+		//接参数
+		String name = request.getParameter("name");
+		System.out.println("name"+name);
+		//传值
+		request.setAttribute("eee", "hi"+name);
+		//pages/hello/.jsp -> pre +hello/index + suf  /pages最后不加/  这/hello/index
+		return "hello/index";
+	}
+}

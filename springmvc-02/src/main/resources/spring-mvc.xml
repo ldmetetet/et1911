@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	<!-- 处理器映射器控制器SimpleUrlHandlerMapping bean(处理器的) name属性作为url的查找处理器
+		
+	-->
+	<bean   class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings"><!--setmapping  -->
+			<props>
+			<!--key是url  value是id属性值-->
+				<prop key="/hello">helloController</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!--适配器SimpleControllerHandlerAdapter supports方法 接口Controller 返回modelAndview-->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	
+	<!-- 视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+		<property name="prefix" value="/pages/" /><!--页面位置在src/main/webapp/pages/.jsp 返回字符串 拼接.jsp -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- 自己开发的处理器控制器 自己写的访问路径 
+	http://localhost:8080/springmvc-001-hello/hello.action?name=12399999-->
+	<bean id="helloController" class="com.etoak.controller.HelloController"></bean>
+</beans>
