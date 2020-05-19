@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+	
+	<!--配置扫描器  -->
+	<context:component-scan base-package="com.etoak" >
+	<!--包含 controller注解  -->
+		<context:include-filter type="annotation" 
+		expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	<!--开启mvc配置  -->
+	<!--1可以代替RequestMappingHandlerMapping 和 RequestMappingHandlel...  -->
+	<!--2自定义转换器  -->
+	<!--3 大量参数转换器  -->
+	<!--4使用@RequestBody接受json参数  Respon....
+	  默认使用jackson框架执行json转换-->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!--========静态资源出路的方式=====  -->
+	<!--将静态文件js css交给容器  -->
+	<mvc:default-servlet-handler/>
+	
+	<!--定制资源访问位置 和路径  -->
+	<!--定制classpath ：/static/ 访问url:/s/**  -->
+	<!--/s/xx.jsp  s代表static mapping="/h/**  h是访问的是resources下的 -->
+	<!-- 大范围的写在下面  mapping="/**-->
+	<mvc:resources location="classpath:/static/" mapping="/static/**" />
+	<mvc:resources location="file:c:/upload/" mapping="/pic/**"></mvc:resources>
+	
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/pages/" /><!--页面位置在src/main/webapp/pages/.jsp 
+			返回字符串 拼接.jsp -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
