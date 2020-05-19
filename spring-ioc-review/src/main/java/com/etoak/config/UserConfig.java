@@ -10,7 +10,7 @@ import com.etoak.service.UserService;
 @Configuration
 public class UserConfig {
 	//使用@Bean注册spring bean
-	@Bean("userService")             //name的属性
+	@Bean("userService") //name的属性
 	public UserService  userService(){
 		return new UserService();//执行一次  单例的 
 	}

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.HttpRequestHandler;
-
+									//  servlet api			
 public class HelloController implements HttpRequestHandler {
 
 	@Override
@@ -15,6 +15,7 @@ public class HelloController implements HttpRequestHandler {
 			throws ServletException, IOException {
 		//接受参数 】
 	String name=request.getParameter("name");
+
 	System.out.print("name"+ name);
 		//调用service   向request传值
 	request.setAttribute("result","hello" +name);

@@ -8,11 +8,15 @@
 	http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	<!-- 处理器映射器控制器 BeanNameUrlHandlerMapping bean(处理器的) name属性作为url的查找处理器-->
 	<bean   class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+	
 	<!-- 处理器适配器 HttpRequestHandlerAdapter 控制器 执行处理器适配器的
 	调用supports方法(能不能处理这个适配器  实现接口)-》true->Handler方法-->
 	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean>
+	
 	<!-- 视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"></bean>
-	<!-- 自己开发的处理器控制器 -->
+	
+	<!-- 自己开发的处理器控制器 自己写的访问路径 
+	http://localhost:8080/springmvc-001-hello/hello.action?name=12399999-->
 	<bean name="/hello.action" class="com.etoak.controller.HelloController"></bean>
 </beans>
