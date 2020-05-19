@@ -10,7 +10,7 @@
 	<modules>
 		<module>spring-ioc-review</module>
 		<module>springmvc-001-hello</module>
-		<module>spring-ioc-review01</module>
+		
 	</modules>
 	<!--如有需要还可以在写 就是要依赖的 <dependencies></dependencies> -->
 	<!-- 父工程管理依赖 但不引入依赖 有模块(子工程)决定自己需要的依赖 -->
