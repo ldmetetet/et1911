@@ -15,6 +15,8 @@
 	<!--包含 controller注解  -->
 		<context:include-filter type="annotation" 
 		expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" 
+		expression="org.springframework.web.bind.annotation.RestController"/>
 	</context:component-scan>
 	<!--开启mvc配置  -->
 	<!--1可以代替RequestMappingHandlerMapping 和 RequestMappingHandlel...  -->
@@ -32,10 +34,10 @@
 	<!--定制classpath ：/static/ 访问url:/s/**  -->
 	<!--/s/xx.jsp  s代表static mapping="/h/**  h是访问的是resources下的 -->
 	<!-- 大范围的写在下面  mapping="/**-->
-	<mvc:resources location="classpath:/static/" mapping="/static/**" />
+	<mvc:resources location="classpath:/static/" mapping="/s/**" />
 	<mvc:resources location="file:c:/upload/" mapping="/pic/**"></mvc:resources>
 	
-	
+	<!--视图解析器  -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/pages/" /><!--页面位置在src/main/webapp/pages/.jsp 
 			返回字符串 拼接.jsp -->
