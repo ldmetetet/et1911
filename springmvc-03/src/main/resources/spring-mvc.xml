@@ -6,7 +6,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-	<!-- 处理器映射器控制器SimpleUrlHandlerMapping bean(处理器的) name属性作为url的查找处理器 -->
+	<!-- 处理器映射器控制器RequestMappingHandlerMapping bean(处理器的) name属性作为url的查找处理器 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
 
