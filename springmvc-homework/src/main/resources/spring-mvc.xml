@@ -13,17 +13,11 @@
 	<context:component-scan base-package="com.etoak">
 		<context:include-filter type="annotation" 
 		expression="org.springframework.stereotype.Controller"/>
-		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
-		
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
 	<!--开启mvc配置  -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<!--静态资源  -->
 	<mvc:default-servlet-handler/>
-	<!--定义图片的位置  -->
-	<mvc:resources location="file:C:/upload/" mapping="/pic/**"></mvc:resources>
 	<!--整合thy  -->
 	<bean id="templateResolver"
 	class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
@@ -44,13 +38,6 @@
 	class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
 		<property name="templateEngine" ref="templateEngine" />
 		<property name="characterEncoding" value="UTF-8" />
-	</bean>
-	<!--文件上传解析器  web相关 在mvc 
-		 必须是-》id="multipartResolver" 
-	 -->
-	<bean id="multipartResolver" 
-	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	<property name="maxUploadSize" value="2097152" />
 	</bean>
 </beans>
 

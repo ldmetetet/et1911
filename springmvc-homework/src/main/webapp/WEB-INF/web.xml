@@ -3,17 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	<!-- spring 容器的创建  xml的bean定义 就会注入了 -->
-	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
-	</listener>
-	<!-- 同springmvc一样 不配置默认一样的 -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-root.xml</param-value>
-	</context-param>
+ 
 	<filter>
 		<filter-name>filter</filter-name>
 		<filter-class>
@@ -23,13 +13,11 @@
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
-
 	</filter>
 	<filter-mapping>
 		<filter-name>filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<!--springmvc的容器  扫描指定的包-->
 	<servlet>
 		<servlet-name>dis</servlet-name>
 		<servlet-class>
@@ -46,18 +34,3 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 </web-app>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
