@@ -12,6 +12,9 @@
 }
 </style>
 </head>
+<div>
+	<span th:text="${paramError}"></span>
+</div>
 <body>
 	<div id="Form">
 		<!--文件上传的标志  -->
@@ -135,7 +138,7 @@
 		addCar.querySelectDict('level');//id值
 		addCar.querySelectDict('output_v');
 		addCar.queryGearbox();
-		addCar.validateForm();
+		//addCar.validateForm();
 	})
 	/* 日期 */
 	laydate.render({
@@ -183,6 +186,7 @@
 						mileage:{
 							required:true,
 							postitiveInt:true,
+							
 						}
 					},
 					messages:{//显示的信息  要跟上面一一对应
@@ -200,6 +204,7 @@
 					}
 				})
 			},
+			
 			//2.变速箱
 			queryGearbox:function(){
 				$.ajax({
