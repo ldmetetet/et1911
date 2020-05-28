@@ -16,6 +16,15 @@ import lombok.extern.slf4j.Slf4j;
 @ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
+	@ExceptionHandler(Et1911LoginException.class)
+	public ModelAndView handleLoginException(Et1911LoginException e) {
+		String msg = e.getMessage();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("error",msg);
+		modelAndView.setViewName("login");
+		return modelAndView;
+	}
+	
 	@ExceptionHandler(ParamException.class)
 	public  ModelAndView handlePaeamException(ParamException e) {
 		String message = e.getMessage();

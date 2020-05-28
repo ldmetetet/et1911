@@ -15,11 +15,13 @@
 		<module>springmvc-04-param</module>
 		<module>springmvc-05-car</module>
 		<module>springmvc-homework</module>
+		<module>et1911-activemq</module>
 	</modules>
 	<!--如有需要还可以在写 就是要依赖的 <dependencies></dependencies> -->
 	<!-- 父工程管理依赖 但不引入依赖 有模块(子工程)决定自己需要的依赖 -->
 	<dependencyManagement>
 		<dependencies>
+			
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
@@ -120,6 +122,12 @@
 				<groupId>org.hibernate.validator</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>6.1.2.Final</version>
+			</dependency>
+			<!--加密工具  -->
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.13</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

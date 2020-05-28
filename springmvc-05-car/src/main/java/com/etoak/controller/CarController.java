@@ -62,12 +62,12 @@ public class CarController {
 		    String[] priceList){
 		return carService.queryList(pageNum, pageSize, carVo,priceList);
 	}
-	//列表链接
+	//跳转列表链接
 	@RequestMapping("/tolist")
 	public String toList() {
 		return "car/list";
 	}
-	//跳转页面
+	//跳转添加页面
 		@RequestMapping("/toCar")
 		public String toCar() {
 			return "car/add";

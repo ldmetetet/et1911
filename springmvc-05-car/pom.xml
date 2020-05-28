@@ -14,6 +14,11 @@
 	<name>springmvc-05-car Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+	<!--加密工具  -->
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+			</dependency>
 		<!--api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

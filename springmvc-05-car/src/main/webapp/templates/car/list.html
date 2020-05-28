@@ -136,18 +136,19 @@
 			car.queryDictgearbox();
 			car.queryDict('output_v');
 			car.queryDict('level');
+			
 			car.querySeriesByBrand("");
 			$('#brandId').change(function(){
 				let selectBrand= $("input[name=brand]:checked").val();
 				//$("#seriesId").html(selectBrand);
-				//选完车系在选品牌的时候
+				//选完车系在选品牌的时候 车系在清空  不然有bug
 				let ser='';
 				$('#seriesId').html(ser);
 				car.querySeriesByBrand(selectBrand);
 				car.queryList();	
 				//console.log(selectBrand);	
 			});
-			//事件差这一步 就是当车系选中的时候再查一遍
+			//事件差这一步 就是当车系选中的时候查一遍
 			$('#seriesId').change(function(){
 				car.queryList();
 				
@@ -169,6 +170,16 @@
 			});
 			car.queryAllBrand();
 			car.queryList();
+			//价格和车龄
+			car.queryPrice();
+			car.queryVehicleAge();
+			$('input[name=price]').change(function(){
+				//console.log("www")
+				car.queryList();//下面改  跟上async:
+			})
+			$('#vehicle_age').change(function(){
+				car.queryList();
+			})
 			//按钮点击
 			$("#firstPage").click(function(){
 				car.queryList();
@@ -182,27 +193,11 @@
 			$("#lastPage").click(function(){
 				car.queryList(pageCount);
 			});
-			car.queryPrice();
-			car.queryVehicleAge();
-			$('input[name=price]').change(function(){
-				//console.log("www")
-				car.queryList();
-			})
-			$('#vehicle_age').change(function(){
-				car.queryList();
-			})
-			/* car.queryPrice();
-			car.queryVehicleAge();
 			
-			$('input[name=price]').change(function(){
-				car.queryList();//下面改
-			});
-			$('#vehicle_age').change(function(){
-				car.queryList();//下面改
-			}) */
+			
 		})
 		let car={
-			//价格事件
+			//价格事件 多选框
 			queryPrice:function(){
 				$.ajax({
 					url:path+"/dict/price",
@@ -224,6 +219,7 @@
 						}
 					})
 			},
+			//车龄  大于晓得  小于大的  但是写的时候是到过来的
 			queryVehicleAge:function(){
 				$.ajax({
 					url:path+"/dict/vehicle_age",
@@ -232,7 +228,7 @@
 					dataType:'json',
 					async:false,
 					success:function(msg){
-						//多选框
+						
 						let radio="";
 						for(let dict of msg){//
 							radio+="<label class='radio-inline' >"
@@ -245,7 +241,7 @@
 						}
 					})
 			},
-			//变量
+			//变速箱 
 				queryDictgearbox:function(){
 					$.ajax({
 						url:path+"/dict/gearbox",
