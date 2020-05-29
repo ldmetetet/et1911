@@ -16,7 +16,8 @@
 		<module>springmvc-05-car</module>
 		<module>springmvc-homework</module>
 		<module>et1911-activemq</module>
-	</modules>
+        <module>et1911-webservice</module>
+    </modules>
 	<!--如有需要还可以在写 就是要依赖的 <dependencies></dependencies> -->
 	<!-- 父工程管理依赖 但不引入依赖 有模块(子工程)决定自己需要的依赖 -->
 	<dependencyManagement>
